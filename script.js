@@ -1,10 +1,10 @@
 // Задание 1.1 Базовые типы
 function getAllWorkers() {
     return [
-        { name: 'Ivan', surname: 'Ivanov', available: true, salary: 1000, category: 1 /* Developer */, id: 1 },
-        { name: 'Petro', surname: 'Petrov', available: true, salary: 1500, category: 2 /* Designer */, id: 2 },
-        { name: 'Vasyl', surname: 'Vasyliev', available: false, salary: 1600, category: 1 /* Developer */, id: 3 },
-        { name: 'Evgen', surname: 'Zhukov', available: true, salary: 1300, category: 4 /* ScrumMaster */, id: 4 }
+        { id: 1, name: 'Ivan', surname: 'Ivanov', available: true, salary: 2 /* Designer */ },
+        { id: 2, name: 'Petro', surname: 'Petrov', available: true, salary: 2 /* Designer */ },
+        { id: 3, name: 'Vasyl', surname: 'Vasyliev', available: false, salary: 2 /* Designer */ },
+        { id: 4, name: 'Evgen', surname: 'Zhukov', available: true, salary: 2 /* Designer */ }
     ];
 }
 ;
@@ -64,7 +64,20 @@ function сheckoutWorkers(customer, workersIDs) {
     console.log("Customer: " + customer);
     var availWorkers = (getAllWorkers()
         .filter(function (worker) { return workersIDs.indexOf(worker.id) && worker.available === true; }))
-        .map(function (worker) { return { name: worker.name, surname: worker.surname }; });
+        .map(function (worker) { name: worker.name, surname; worker.surname; });
     return availWorkers;
 }
-//const myWorkers = сheckoutWorkers('Bob', [1,2,4]).forEach((worker)=>console.log(`Name: ${worker.name} SurName: ${worker.surname}`));
+console.log(getAllWorkers());
+function getBookByID(worker) {
+}
+function PrintWorker(worker) {
+    return worker.name + " " + worker.surname + " got salary " + worker.salary;
+}
+var igor = {
+    id: 1,
+    name: 'Ivan',
+    surname: 'Ivanov',
+    available: true,
+    salary: 2 /* Designer */
+};
+console.log(PrintWorker(igor));

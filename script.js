@@ -1,23 +1,13 @@
-/*
-const favoriteLibrarian: Librarian = {
-    name: "John",
-    email: "john@hotmail.com",
-    department: "sience",
-    assistCustomer: function (custName: string): string {
-        return this.name + " " + custName;
+var ReferenceItem = /** @class */ (function () {
+    function ReferenceItem(newTitle, newYear) {
+        console.log('Creatiang a new ReferenceItem ...');
+        this.title = newTitle;
+        this.year = newYear;
     }
-};
-*/
-var UniversityLibrarian = /** @class */ (function () {
-    function UniversityLibrarian(name, email, department) {
-        this.name = name;
-        this.email = email;
-        this.department = department;
-    }
-    UniversityLibrarian.prototype.assistCustomer = function (custName) {
-        console.log(this.name + " is assisting " + custName);
+    ReferenceItem.prototype.printItem = function () {
+        console.log(this.title + " was published in " + this.year);
     };
-    return UniversityLibrarian;
+    return ReferenceItem;
 }());
-var favoriteLibrarian = new UniversityLibrarian("Angelo", "angelo@witcher.com", "writer");
-favoriteLibrarian.assistCustomer("Sapcowsky");
+var ref = new ReferenceItem("Avengers: End Game", 2019);
+ref.printItem();

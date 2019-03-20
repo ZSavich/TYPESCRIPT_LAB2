@@ -1,17 +1,7 @@
 class ReferenceItem {
 
-    /*title: string;
-    year: number;*/
-
-    /*constructor(newTitle: string, newYear: number) {
-        console.log('Creatiang a new ReferenceItem ...');
-        this.title = newTitle;
-        this.year = newYear;
-    }*/
-
     public title: string;
     private _year: number;
-    private _publisher: string;
 
     constructor(newTitle: string, newYear: number) {
         console.log('Creatiang a new ReferenceItem ...');
@@ -19,24 +9,24 @@ class ReferenceItem {
         this._year = newYear;
     }
 
-    set publisher(newPublisher: string) {
-        this._publisher = newPublisher;
-    }
-
-    get publisher() {
-        return this._publisher.toUpperCase();
-    }
-
     printItem(): void {
-        console.log(`${department}`);
+        console.log(`${this.title}`);
     }
 }
 
-const ref: ReferenceItem = new ReferenceItem("Avengers: End Game", 2019);
+class Encyclopedia extends ReferenceItem {
+    public _edition: number;
 
-ref.printItem();
-ref.publisher = "David";
-console.log(ref.publisher);
+    constructor(newTitle: string, newYear: number, edition: number) {
+        super(newTitle,newYear);
+        this._edition = edition;
+    }
 
-static const department = "Mahuchkala";
-ref.printItem();
+    printItem(): void {
+        super.printItem();
+        console.log(`Edition: ${this._edition} (${this._year})`)
+    }
+}
+
+let refBook: Encyclopedia = new Encyclopedia("Avatar", 2012, 24);
+refBook.printItem();

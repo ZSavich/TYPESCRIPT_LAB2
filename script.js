@@ -17,23 +17,17 @@ var ReferenceItem = /** @class */ (function () {
         this.title = newTitle;
         this._year = newYear;
     }
-    ReferenceItem.prototype.printItem = function () {
-        console.log("" + this.title);
-    };
     return ReferenceItem;
 }());
 var Encyclopedia = /** @class */ (function (_super) {
     __extends(Encyclopedia, _super);
-    function Encyclopedia(newTitle, newYear, edition) {
-        var _this = _super.call(this, newTitle, newYear) || this;
-        _this._edition = edition;
-        return _this;
+    function Encyclopedia(newTitle, newYear) {
+        return _super.call(this, newTitle, newYear) || this;
     }
-    Encyclopedia.prototype.printItem = function () {
-        _super.prototype.printItem.call(this);
-        console.log("Edition: " + this._edition + " (" + this._year + ")");
+    Encyclopedia.prototype.printCitation = function () {
+        console.log(this.title + " " + this._year);
     };
     return Encyclopedia;
 }(ReferenceItem));
-var refBook = new Encyclopedia("Avatar", 2012, 24);
-refBook.printItem();
+var ref = new Encyclopedia("Batman", 2002);
+ref.printCitation();

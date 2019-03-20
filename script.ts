@@ -1,4 +1,4 @@
-class ReferenceItem {
+abstract class ReferenceItem {
 
     public title: string;
     private _year: number;
@@ -9,24 +9,20 @@ class ReferenceItem {
         this._year = newYear;
     }
 
-    printItem(): void {
-        console.log(`${this.title}`);
-    }
+    abstract printCitation(): void;
 }
 
 class Encyclopedia extends ReferenceItem {
-    public _edition: number;
 
-    constructor(newTitle: string, newYear: number, edition: number) {
-        super(newTitle,newYear);
-        this._edition = edition;
+    constructor(newTitle: string, newYear: number) {
+        super(newTitle, newYear);
     }
 
-    printItem(): void {
-        super.printItem();
-        console.log(`Edition: ${this._edition} (${this._year})`)
+    printCitation(): void {
+        console.log(`${this.title} ${this._year}`);
     }
 }
 
-let refBook: Encyclopedia = new Encyclopedia("Avatar", 2012, 24);
-refBook.printItem();
+let ref: Encyclopedia = new Encyclopedia("Batman", 2002);
+
+ref.printCitation();
